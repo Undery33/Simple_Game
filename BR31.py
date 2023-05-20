@@ -12,7 +12,16 @@ class ErrorNum(Exception):
 class WrongEnter(Exception):
     def __str__(wen):
         return ("Please Enter Number")
-    
+
+# Organize Computer Win with Switch~case
+def Win_Com_Num(num):
+    return {
+        num <= 26 and num >= 24: 1,
+        28 : 2,
+        27 : 3,
+        29 : 1
+    }. get(num, 1)
+
 # Start Game (__main__)
 print("Welcome to BR31 game!")
 while True:
@@ -41,11 +50,10 @@ while True:
 
     # Computer set Number
     Com_Rand_Set = rand.randint(1, 3)
+
     # Can win Computer (1)
-    if default <= 26 and default >= 24:
-        Com_Rand_Set = 1
-    if default == 27:
-        Com_Rand_Set = 3
+    if default >= 24 and default <= 29:
+        Com_Rand_Set = Win_Com_Num(default)
     Com_def = Com_Rand_Set + default
 
     # Can win Computer (2)
