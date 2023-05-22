@@ -16,10 +16,9 @@ class WrongEnter(Exception):
 # Organize Computer Win with Switch~case
 def Win_Com_Num(num):
     return {
-        num <= 26 and num >= 24: 1,
         28 : 2,
         27 : 3,
-        29 : 1
+        25 or 29 : 1
     }. get(num, 1)
 
 # Start Game (__main__)
@@ -52,7 +51,7 @@ while True:
     Com_Rand_Set = rand.randint(1, 3)
 
     # Can win Computer (1)
-    if default >= 24 and default <= 29:
+    if default >= 25 and default <= 29:
         Com_Rand_Set = Win_Com_Num(default)
     Com_def = Com_Rand_Set + default
 
